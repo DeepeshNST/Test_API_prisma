@@ -10,9 +10,10 @@ This API allows you to manage a list of usernames stored in a MySQL database. It
 
 ### Database Connection
 
-- Connects to a MySQL database using credentials stored in environment variables.
-- Creates a table called `usernames` if it doesn't already exist.
-- Seeds the table with some initial usernames if it's empty.
+- Put Database url in env then to initialize the table write : 
+- npx prisma generate
+- npx prisma migrate dev --name init
+
 
 ### API Endpoints
 
@@ -26,6 +27,7 @@ This API allows you to manage a list of usernames stored in a MySQL database. It
 - Listens on a specified port (default is 5000) to handle incoming requests.
 
 By using this API, you can easily manage a collection of usernames with standard CRUD operations.
+
 
 start api
     - npm start
