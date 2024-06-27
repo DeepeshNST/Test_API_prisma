@@ -5,9 +5,9 @@
     "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2024-06-27T09:26:17.752Z",
-    "end": "2024-06-27T09:26:17.868Z",
-    "duration": 116,
+    "start": "2024-06-27T09:48:28.261Z",
+    "end": "2024-06-27T09:48:28.375Z",
+    "duration": 114,
     "testsRegistered": 4,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e193c30c-7f36-4695-8154-28461012a965",
+      "uuid": "cb7a4be4-a691-4c5a-a743-aa373ede6614",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5d931b0b-77a7-46d7-b459-e159d91497a3",
+          "uuid": "868ae696-25ac-4adb-bd95-b46584dda750",
           "title": "Usernames API",
           "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
           "file": "\\__tests__\\test.js",
@@ -36,17 +36,17 @@
               "title": "\"before all\" hook in \"Usernames API\"",
               "fullTitle": "Usernames API \"before all\" hook in \"Usernames API\"",
               "timedOut": false,
-              "duration": 15,
+              "duration": 16,
               "state": null,
               "speed": null,
               "pass": false,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "await prisma.username.deleteMany(); // Clear the table before running tests",
+              "code": "await prisma.username.deleteMany();",
               "err": {},
-              "uuid": "b4dfcaa0-5eec-4d9b-9f99-6829dd0d1b69",
-              "parentUUID": "5d931b0b-77a7-46d7-b459-e159d91497a3",
+              "uuid": "8a56893e-5dd1-4df6-a4af-420e479882e8",
+              "parentUUID": "868ae696-25ac-4adb-bd95-b46584dda750",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"Usernames API\"",
               "fullTitle": "Usernames API \"after all\" hook in \"Usernames API\"",
               "timedOut": false,
-              "duration": 8,
+              "duration": 9,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await prisma.$disconnect();",
               "err": {},
-              "uuid": "a8ae416f-8f32-4226-bacd-2cdc14090d99",
-              "parentUUID": "5d931b0b-77a7-46d7-b459-e159d91497a3",
+              "uuid": "914c5a7f-873e-4a00-b7b5-efeb9e873aa3",
+              "parentUUID": "868ae696-25ac-4adb-bd95-b46584dda750",
               "isHook": true,
               "skipped": false
             }
@@ -74,7 +74,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "56527679-c42e-4d7a-98d4-f5dd9c4dcce6",
+              "uuid": "524b1d93-e109-4de4-811b-0193105c5184",
               "title": "POST /usernames",
               "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
               "file": "\\__tests__\\test.js",
@@ -85,35 +85,35 @@
                   "title": "should create a new username",
                   "fullTitle": "Usernames API POST /usernames should create a new username",
                   "timedOut": false,
-                  "duration": 38,
+                  "duration": 39,
                   "state": "passed",
                   "speed": "medium",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "chai.request(app)\n    .post('/usernames')\n    .send({ username: 'test_user' })\n    .end((err, res) => {\n        expect(res).to.have.status(201);\n        expect(res.body).to.be.an('object');\n        expect(res.body).to.have.property('username', 'test_user');\n        done();\n    });",
+                  "code": "const res = await chai.request(app)\n    .post('/usernames')\n    .send({ username: 'test_user' });\nexpect(res).to.have.status(201);\nexpect(res.body).to.be.an('object');\nexpect(res.body).to.have.property('username', 'test_user');\nconst user = await prisma.username.findFirst({\n    where: { username: 'test_user' }\n});\nexpect(user).to.not.be.null;\nexpect(user).to.have.property('username', 'test_user');",
                   "err": {},
-                  "uuid": "76a676af-1a16-4476-9c21-ea2e6457a81a",
-                  "parentUUID": "56527679-c42e-4d7a-98d4-f5dd9c4dcce6",
+                  "uuid": "53caeaef-8510-4710-8b64-ab65497a5453",
+                  "parentUUID": "524b1d93-e109-4de4-811b-0193105c5184",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "76a676af-1a16-4476-9c21-ea2e6457a81a"
+                "53caeaef-8510-4710-8b64-ab65497a5453"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 38,
+              "duration": 39,
               "root": false,
               "rootEmpty": false,
               "_timeout": 60000
             },
             {
-              "uuid": "01a35e6f-59a7-468e-b0e8-24f94526df24",
+              "uuid": "7d32cc24-9287-4ce5-aa27-c82ef3a7ca61",
               "title": "GET /usernames",
               "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
               "file": "\\__tests__\\test.js",
@@ -124,35 +124,35 @@
                   "title": "should get all usernames",
                   "fullTitle": "Usernames API GET /usernames should get all usernames",
                   "timedOut": false,
-                  "duration": 7,
+                  "duration": 9,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "chai.request(app)\n    .get('/usernames')\n    .end((err, res) => {\n        expect(res).to.have.status(200);\n        expect(res.body).to.be.an('array');\n        expect(res.body.length).to.be.above(0);\n        done();\n    });",
+                  "code": "const res = await chai.request(app).get('/usernames');\n\nexpect(res).to.have.status(200);\nexpect(res.body).to.be.an('array');\nexpect(res.body.length).to.be.above(0);\nconst users = await prisma.username.findMany();\nexpect(users).to.be.an('array');\nexpect(users.length).to.be.above(0);",
                   "err": {},
-                  "uuid": "0b3d5b85-446d-48e2-a88c-73a3c38b18c2",
-                  "parentUUID": "01a35e6f-59a7-468e-b0e8-24f94526df24",
+                  "uuid": "2e1f46c8-1d0b-4491-acd8-482d11edea87",
+                  "parentUUID": "7d32cc24-9287-4ce5-aa27-c82ef3a7ca61",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "0b3d5b85-446d-48e2-a88c-73a3c38b18c2"
+                "2e1f46c8-1d0b-4491-acd8-482d11edea87"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 7,
+              "duration": 9,
               "root": false,
               "rootEmpty": false,
               "_timeout": 60000
             },
             {
-              "uuid": "a2e04b73-1abd-473c-b071-ca0813f42460",
+              "uuid": "991e2722-1c09-4687-a0a7-f3e0fb1a418f",
               "title": "PUT /usernames/:id",
               "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
               "file": "\\__tests__\\test.js",
@@ -170,8 +170,8 @@
                   "context": null,
                   "code": "const user = await prisma.username.create({ data: { username: 'old_user' } });\nuserId = user.id;",
                   "err": {},
-                  "uuid": "8a5c0f89-f01d-43ee-b2f1-f2c9137d9db3",
-                  "parentUUID": "a2e04b73-1abd-473c-b071-ca0813f42460",
+                  "uuid": "4403f8dd-6805-401d-9f32-6f7d7a39095c",
+                  "parentUUID": "991e2722-1c09-4687-a0a7-f3e0fb1a418f",
                   "isHook": true,
                   "skipped": false
                 }
@@ -182,35 +182,35 @@
                   "title": "should update a username by id",
                   "fullTitle": "Usernames API PUT /usernames/:id should update a username by id",
                   "timedOut": false,
-                  "duration": 14,
+                  "duration": 12,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "chai.request(app)\n    .put(`/usernames/${userId}`)\n    .send({ username: 'updated_user' })\n    .end((err, res) => {\n        expect(res).to.have.status(200);\n        chai.request(app)\n            .get('/usernames')\n            .end((err, res) => {\n                expect(res).to.have.status(200);\n                const updatedUser = res.body.find(user => user.id === userId);\n                expect(updatedUser).to.have.property('username', 'updated_user');\n                done();\n            });\n    });",
+                  "code": "const res = await chai.request(app)\n    .put(`/usernames/${userId}`)\n    .send({ username: 'updated_user' });\nexpect(res).to.have.status(200);\nconst updatedUser = await prisma.username.findUnique({\n    where: { id: userId }\n});\nexpect(updatedUser).to.have.property('username', 'updated_user');",
                   "err": {},
-                  "uuid": "aacf1780-157b-4420-85ab-373a00dae1af",
-                  "parentUUID": "a2e04b73-1abd-473c-b071-ca0813f42460",
+                  "uuid": "91841e68-24b5-4f3a-ac43-4bf9d1d15e33",
+                  "parentUUID": "991e2722-1c09-4687-a0a7-f3e0fb1a418f",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "aacf1780-157b-4420-85ab-373a00dae1af"
+                "91841e68-24b5-4f3a-ac43-4bf9d1d15e33"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 14,
+              "duration": 12,
               "root": false,
               "rootEmpty": false,
               "_timeout": 60000
             },
             {
-              "uuid": "b15072d8-53af-49ef-b72c-7c855f8430e4",
+              "uuid": "fb433033-bb9f-47ef-acb8-bf259595cfd1",
               "title": "DELETE /usernames/:id",
               "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
               "file": "\\__tests__\\test.js",
@@ -219,7 +219,7 @@
                   "title": "\"before all\" hook in \"DELETE /usernames/:id\"",
                   "fullTitle": "Usernames API DELETE /usernames/:id \"before all\" hook in \"DELETE /usernames/:id\"",
                   "timedOut": false,
-                  "duration": 4,
+                  "duration": 5,
                   "state": null,
                   "speed": null,
                   "pass": false,
@@ -228,8 +228,8 @@
                   "context": null,
                   "code": "const user = await prisma.username.create({ data: { username: 'delete_user' } });\nuserId = user.id;",
                   "err": {},
-                  "uuid": "d5739b5c-8ec7-4667-954d-c93414d1eb1f",
-                  "parentUUID": "b15072d8-53af-49ef-b72c-7c855f8430e4",
+                  "uuid": "6c474b62-a1e1-4ec0-a154-ae0ffa863b74",
+                  "parentUUID": "fb433033-bb9f-47ef-acb8-bf259595cfd1",
                   "isHook": true,
                   "skipped": false
                 }
@@ -240,29 +240,29 @@
                   "title": "should delete a username by id",
                   "fullTitle": "Usernames API DELETE /usernames/:id should delete a username by id",
                   "timedOut": false,
-                  "duration": 14,
+                  "duration": 9,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "chai.request(app)\n    .delete(`/usernames/${userId}`)\n    .end((err, res) => {\n        expect(res).to.have.status(200);\n        chai.request(app)\n            .get('/usernames')\n            .end((err, res) => {\n                expect(res).to.have.status(200);\n                const deletedUser = res.body.find(user => user.id === userId);\n                expect(deletedUser).to.be.undefined;\n                done();\n            });\n    });",
+                  "code": "const res = await chai.request(app).delete(`/usernames/${userId}`);\n\nexpect(res).to.have.status(200);\nconst deletedUser = await prisma.username.findUnique({\n    where: { id: userId }\n});\nexpect(deletedUser).to.be.null;",
                   "err": {},
-                  "uuid": "3ac314df-891f-4eda-a521-1a2673ecb5ab",
-                  "parentUUID": "b15072d8-53af-49ef-b72c-7c855f8430e4",
+                  "uuid": "f72fc086-0315-4fe4-afd0-9cd5e84e0130",
+                  "parentUUID": "fb433033-bb9f-47ef-acb8-bf259595cfd1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3ac314df-891f-4eda-a521-1a2673ecb5ab"
+                "f72fc086-0315-4fe4-afd0-9cd5e84e0130"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 14,
+              "duration": 9,
               "root": false,
               "rootEmpty": false,
               "_timeout": 60000
