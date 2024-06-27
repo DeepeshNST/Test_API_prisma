@@ -1,0 +1,312 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-27T09:26:17.752Z",
+    "end": "2024-06-27T09:26:17.868Z",
+    "duration": 116,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e193c30c-7f36-4695-8154-28461012a965",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5d931b0b-77a7-46d7-b459-e159d91497a3",
+          "title": "Usernames API",
+          "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
+          "file": "\\__tests__\\test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Usernames API\"",
+              "fullTitle": "Usernames API \"before all\" hook in \"Usernames API\"",
+              "timedOut": false,
+              "duration": 15,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await prisma.username.deleteMany(); // Clear the table before running tests",
+              "err": {},
+              "uuid": "b4dfcaa0-5eec-4d9b-9f99-6829dd0d1b69",
+              "parentUUID": "5d931b0b-77a7-46d7-b459-e159d91497a3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Usernames API\"",
+              "fullTitle": "Usernames API \"after all\" hook in \"Usernames API\"",
+              "timedOut": false,
+              "duration": 8,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await prisma.$disconnect();",
+              "err": {},
+              "uuid": "a8ae416f-8f32-4226-bacd-2cdc14090d99",
+              "parentUUID": "5d931b0b-77a7-46d7-b459-e159d91497a3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "56527679-c42e-4d7a-98d4-f5dd9c4dcce6",
+              "title": "POST /usernames",
+              "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
+              "file": "\\__tests__\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should create a new username",
+                  "fullTitle": "Usernames API POST /usernames should create a new username",
+                  "timedOut": false,
+                  "duration": 38,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/usernames')\n    .send({ username: 'test_user' })\n    .end((err, res) => {\n        expect(res).to.have.status(201);\n        expect(res.body).to.be.an('object');\n        expect(res.body).to.have.property('username', 'test_user');\n        done();\n    });",
+                  "err": {},
+                  "uuid": "76a676af-1a16-4476-9c21-ea2e6457a81a",
+                  "parentUUID": "56527679-c42e-4d7a-98d4-f5dd9c4dcce6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "76a676af-1a16-4476-9c21-ea2e6457a81a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 38,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "01a35e6f-59a7-468e-b0e8-24f94526df24",
+              "title": "GET /usernames",
+              "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
+              "file": "\\__tests__\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should get all usernames",
+                  "fullTitle": "Usernames API GET /usernames should get all usernames",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/usernames')\n    .end((err, res) => {\n        expect(res).to.have.status(200);\n        expect(res.body).to.be.an('array');\n        expect(res.body.length).to.be.above(0);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "0b3d5b85-446d-48e2-a88c-73a3c38b18c2",
+                  "parentUUID": "01a35e6f-59a7-468e-b0e8-24f94526df24",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0b3d5b85-446d-48e2-a88c-73a3c38b18c2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "a2e04b73-1abd-473c-b071-ca0813f42460",
+              "title": "PUT /usernames/:id",
+              "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
+              "file": "\\__tests__\\test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"PUT /usernames/:id\"",
+                  "fullTitle": "Usernames API PUT /usernames/:id \"before all\" hook in \"PUT /usernames/:id\"",
+                  "timedOut": false,
+                  "duration": 3,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const user = await prisma.username.create({ data: { username: 'old_user' } });\nuserId = user.id;",
+                  "err": {},
+                  "uuid": "8a5c0f89-f01d-43ee-b2f1-f2c9137d9db3",
+                  "parentUUID": "a2e04b73-1abd-473c-b071-ca0813f42460",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should update a username by id",
+                  "fullTitle": "Usernames API PUT /usernames/:id should update a username by id",
+                  "timedOut": false,
+                  "duration": 14,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .put(`/usernames/${userId}`)\n    .send({ username: 'updated_user' })\n    .end((err, res) => {\n        expect(res).to.have.status(200);\n        chai.request(app)\n            .get('/usernames')\n            .end((err, res) => {\n                expect(res).to.have.status(200);\n                const updatedUser = res.body.find(user => user.id === userId);\n                expect(updatedUser).to.have.property('username', 'updated_user');\n                done();\n            });\n    });",
+                  "err": {},
+                  "uuid": "aacf1780-157b-4420-85ab-373a00dae1af",
+                  "parentUUID": "a2e04b73-1abd-473c-b071-ca0813f42460",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "aacf1780-157b-4420-85ab-373a00dae1af"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 14,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "b15072d8-53af-49ef-b72c-7c855f8430e4",
+              "title": "DELETE /usernames/:id",
+              "fullFile": "C:\\Test-API-Prisma\\__tests__\\test.js",
+              "file": "\\__tests__\\test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"DELETE /usernames/:id\"",
+                  "fullTitle": "Usernames API DELETE /usernames/:id \"before all\" hook in \"DELETE /usernames/:id\"",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const user = await prisma.username.create({ data: { username: 'delete_user' } });\nuserId = user.id;",
+                  "err": {},
+                  "uuid": "d5739b5c-8ec7-4667-954d-c93414d1eb1f",
+                  "parentUUID": "b15072d8-53af-49ef-b72c-7c855f8430e4",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should delete a username by id",
+                  "fullTitle": "Usernames API DELETE /usernames/:id should delete a username by id",
+                  "timedOut": false,
+                  "duration": 14,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .delete(`/usernames/${userId}`)\n    .end((err, res) => {\n        expect(res).to.have.status(200);\n        chai.request(app)\n            .get('/usernames')\n            .end((err, res) => {\n                expect(res).to.have.status(200);\n                const deletedUser = res.body.find(user => user.id === userId);\n                expect(deletedUser).to.be.undefined;\n                done();\n            });\n    });",
+                  "err": {},
+                  "uuid": "3ac314df-891f-4eda-a521-1a2673ecb5ab",
+                  "parentUUID": "b15072d8-53af-49ef-b72c-7c855f8430e4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3ac314df-891f-4eda-a521-1a2673ecb5ab"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 14,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
