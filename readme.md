@@ -5,7 +5,7 @@ This API allows you to manage a list of usernames stored in a MySQL database. It
 ### Setup and Configuration
 
 - **Express.js** is used to create the server.
-- **MySQL** is used to connect to a MySQL database.
+- **Prisma** is used to connect to a MySQL database.
 - **dotenv** is used to manage environment variables securely.
 
 ### Database Connection
@@ -13,7 +13,6 @@ This API allows you to manage a list of usernames stored in a MySQL database. It
 - Put Database url in env then to initialize the table write : 
 - npx prisma generate
 - npx prisma migrate dev --name init
-
 
 ### API Endpoints
 
